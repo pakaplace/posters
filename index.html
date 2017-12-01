@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Parker</title>
+	<link rel="stylesheet" type="text/css" href="a1.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Playfair+Display" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src= "javascript.js" type="text/javascript"></script>
+	<script >
+		$(document).ready(function(){
+			var textMichael = function(inputValue) {
+			    $.ajax({
+			       url: 'https://quiet-peak-95232.herokuapp.com/annoyruch?message='+inputValue, // .asp?
+			       type: 'GET',
+			       contentType: "application/json; charset=utf-8",
+			       success: function(response) {
+			          // do something with response
+			          console.log("Response~~", response)
+			          alert("The response is ", response)
+			       }
+			    });
+			};
+			$('#textMikey').click(function() {
+				if($('#textInput').val().length == 0){
+					alert("Enter a message first!")
+					return false;
+				}
+			    var inputValue = $('#textInput').val();
+			    console.log(inputValue)
+			    alert("you've texted mikey")
+			    textMichael(inputValue);
+			});
+		})
+	</script>
+</head>
+
+<body>
+	<nav class="navbar">
+		<a class = "logo" href = "a1.html">My Heroes</a>
+		<div class = "navlist">	
+			<a class = "navitem" href= "a1.html" style="flex-grow: 1">Home</a>
+			<a class = "navitem" href= "techno.html" style="flex-grow: 1">Techno</a>
+			<a class = "navitem" href= "pauli.html" style="flex-grow: 1">Pauli</a>
+			<a class = "navitem" href= "https://www.github.com/pakaplace" style="flex-grow: 3">Github</a>
+			<a class = "navitem" href= "https://twitter.com/i/notifications?lang=en" style="flex-grow: 1">Twitter</a>
+		</div>
+	</nav>
+	<main class = "main-page">
+		<div class = "left-sidebar">
+			<h1>Navigation</h1>
+			<a id="navsidebar" href= "a1.html" style="flex-grow: 1">Home</a>
+			<a id="navsidebar" href = 'techno.html' style="flex-grow: 1">Techno</a>
+			<a id="navsidebar" href = 'pauli.html' style="flex-grow: 1">Pauli</a>
+			<a id="navsidebar" href= "https://www.github.com/pakaplace" style="flex-grow: 3">Github</a>
+			<a id="navsidebar" href= "https://twitter.com/i/notifications?lang=en" style="flex-grow: 1">Twitter</a>
+		</div>
+		<div class = "main-body">
+<!-- 			<img src="./images/pauli.jpg" id="pauli" style="margin:20px, width:100">
+ -->			<h2>My roommate is my hero</h2>
+			<img id="ruch" src=" ./images/ruch.jpg">
+			<div class = "textbox">
+				<p> Musician </p>
+			</div>
+			<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FLeftonFranklin%2Fvideos%2F1715543065408525%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+			<div class = "textbox">
+				<p> Skater, but like not obnoxious about it. </p>
+			</div>
+			<img id="ruch" src=" ./images/skateboard.jpg">
+			<div class = "textbox"> 
+				<p> Designer, makes dope shit </p>
+			</div>
+			<img src = "./images/vince.png"> 
+			<p> Tell Michael you love him (via sms)... </p>
+			<input placeholder="I love you Mikey, youre the kewlest <3" id="textInput">
+			<button id="textMikey">Text Michael </button>
+			<p> ^^ I made the above call a twilio app to text Michael. Please don't send too many </p>
+
+		</div>
+		<div class = "right-sidebar">
+			<h2> About me </h2>
+			<img class = "headshot" src = "./images/headshot.jpg">
+			<p> My name is Parker and I am <span id="age"></span> years old </p> <br>
+			<p> I'm passionate about blockchain, techno music, and cooking. </p>
+			<p> Through building this website, I realize how uncreative I am as I have no idea what to write...</p>
+			<h2> This website </h2>
+			<p> This website is built with html, css (flexbox), jQuery, and javascript. It's somewhat mobile compatible (see the breakpoint at 750px). 
+
+		</div>	
+	</main>
+	
+</body>
+
+</html>
+

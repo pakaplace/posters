@@ -1,0 +1,22 @@
+{
+  "name": "posters",
+  "version": "1.0.0",
+  "description": "426 Posterboard for UNC ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pakaplace/posters.git"
+  },
+  "author": "pakaplce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pakaplace/posters/issues"
+  },
+  "homepage": "https://github.com/pakaplace/posters#readme",
+  "dependencies": {
+    "mongodb": "^2.2.33"
+  }
+}
