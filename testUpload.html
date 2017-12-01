@@ -1,0 +1,48 @@
+<html>
+<body>
+<p>Click the button to create a File Upload Button.</p>
+
+<button onclick="myFunction()">Try it</button>
+<div id="output"></div>
+
+<script>
+function myFunction() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "file");
+    x.setAttribute("id", "upload");
+    x.setAttribute("accept", "image/jpeg");
+    x.setAttribute("onchange", "getJpg()");
+    document.body.appendChild(x);
+}
+//files has name, size, and type
+function getJpg(){
+	var div = document.getElementById("output")
+	var x = document.getElementById("upload");
+    var txt = "";
+    if ('files' in x) { //has name, type, and size
+        if (x.files.length == 0) {
+            alert("Select one or more files");
+        } else {
+            for (var i = 0; i < x.files.length; i++) {
+            	var file = x.files[i];
+            	var y = document.createElement("img");
+            	y.file = file;
+            	console.log(y)
+            	div.appendChild(y);
+            	var reader = new FileReader();
+    			reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(y);
+   				reader.readAsDataURL(file);
+            }
+        }
+    } 
+    else {
+        if (x.value == "") {
+            alert("Select one or more files.");
+        } else {
+            alert("The files property is not supported by your browser!");
+        }
+    }
+}
+</script>
+</body>
+</html>
