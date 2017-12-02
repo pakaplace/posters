@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pakaplace/posters#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "fs": "0.0.1-security",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.5"

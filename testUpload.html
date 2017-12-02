@@ -4,8 +4,23 @@
 
 <button onclick="myFunction()">Try it</button>
 <div id="output"></div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script>
+//image.data, img.contenttype title, expiration date, upload date
+function savePoster(imgBase64){
+	$.ajax({
+      method: 'POST',
+      url: "http://localhost:3000/savePoster",
+      contentType: 'application/json',
+      data: JSON.stringify({data: imgBase64}),
+      crossDomain: true,
+      dataType: 'json',
+      success: function(data) {
+        console.log("poster saved~ ", JSON.stringify(data));
+      }
+	})
+};
 function myFunction() {
     var x = document.createElement("INPUT");
     x.setAttribute("type", "file");
@@ -27,10 +42,16 @@ function getJpg(){
             	var file = x.files[i];
             	var y = document.createElement("img");
             	y.file = file;
-            	console.log(y)
             	div.appendChild(y);
             	var reader = new FileReader();
-    			reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(y);
+    			reader.onload = (function(aImg) { 
+    				return function(e) { 
+    				aImg.src = e.target.result;
+    				var imgData =  e.target.result.replace("data:"+ file.type +";base64,", '');
+    				savePoster(imgData);
+    				}; 
+    			})(y);
+    			console.log("RESULT", reader.result)
    				reader.readAsDataURL(file);
             }
         }
