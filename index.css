@@ -59,10 +59,7 @@ input{
 	margin: 5px 100px 10px 20px;
     font-size: 40px;
 }
-/*.navitem{ 
-	display: flex;
-	justify-content: center;
-}*/
+
 
 .nav-list{
 	justify-content: space-around;
@@ -76,7 +73,7 @@ a:hover{
 	color: grey;
 }
 
-.main-page{
+.main-page{    
 	display: flex;
   	min-height: 100vh;
   	flex-direction: row;
@@ -138,4 +135,26 @@ td {
     padding: 4px; 
     border: 1px #CCC solid; 
     width: 100px;
+}
+
+/*Masonry CSS*/
+.picture {
+  border-radius: 20px;
+  width: 20%;
+  
+  display: inline-block;
+
+    
+}
+
+.picture:hover {
+  box-shadow: 0 5px 5px rgba(0,0,0,.3), 0 5px 5px rgba(0,0,0, .3);
+}
+
+.container{
+    padding: .5%;
+}
+
+.container:hover .picture:not(:hover) { 
+    opacity: .8;   
 }
