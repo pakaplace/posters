@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+body{
+    background-color: #D1F4FF;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+div.container{
+    width: 960px;
+    height: 610px;
+    margin: 50px auto;
+    font-family: 'Droid Serif', serif;
+    position:relative;
+    
+}
+
+div.main{
+    width: 50%;
+    float:left;
+    padding: 10px 55px 40px;
+    background-color: #709DC4;
+    border: 10px solid lightblue;
+    box-shadow: 0 0 10px;
+    font-size: 12px;
+}
+
+input[type=text],[type=password] {
+    width: 97.7%;
+    height: 34px;   
+    padding-left: 5px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    color: black;
+    font-size: 16px;
+}
+
+label{
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#register {
+    font-size: 20px;
+    margin-top: 15px;
+    background: blue;
+    border: 1px solid #0F799E;
+    padding: 10px 35px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+#register:hover{
+    background: #232367;
+}
+
+
