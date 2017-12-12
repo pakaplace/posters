@@ -42,9 +42,26 @@
 				
 			
 		</div>
-		
-        
-        <div class= "container main-body">
+
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    type: 'GET',
+                    crossDomain: true,
+                    url: "http://localhost:3000/getPoster",
+                    success: function(result){
+                        $("#container").html("");
+                        for(var i = 0; i < result.length;i++){
+                            var obj = result[i].img.data;
+                            var img = "data:image/jpeg;base64,"+obj.substr(1).slice(0, -1);
+                            $("#container").append("<img class='picture'src='"+img+"'/>");
+                            console.log(obj);
+                        }
+                    }});
+            });
+        </script>
+
+        <div id="container" class= "container main-body">
                <img class = "picture" src="http://via.placeholder.com/350x150">
                  <img class = "picture" src="http://via.placeholder.com/450x100">
                  <img class = "picture" src="http://via.placeholder.com/150x300">
