@@ -5,7 +5,8 @@ body {
 	margin: 0px;
 	word-wrap: break-word;
 	font-family: 'Playfair Display', serif;
-    background-color: #D1F4FF
+    background-color: #e8fafc;
+    
 }
 h1, h2, h3 {
 	font-size: 25px;
@@ -54,7 +55,7 @@ input{
 	padding: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
 	margin-bottom: 10px;
-    background-color: powderblue
+    background-color: #4b9cb3;
 	/*@media (min-width: 768px) { width: 750px; }
   	@media (min-width: 992px) { width: 970px; }
   	@media (min-width: 1200px) { width: 1140px; }*/
