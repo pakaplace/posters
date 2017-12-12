@@ -18,6 +18,9 @@
 		<div class = "navlist">	
             <a class = "navitem" href= "index.html" style="flex-grow: 1">HomePage</a>
 			<a class = "navitem" href= "index.html" style="flex-grow: 1">Upload Poster</a>
+			
+			<img id = 'logo' src="logo.png" alt="poster" style="width:200px;height:200px;">
+			
 			<a class = "navitem" href= "accountcreate/createAccount.html" style="flex-grow: 1">Create Account</a>
 			<a class = "navitem" href= "index.html" style="flex-grow: 1">View Account</a>
 		</div>
@@ -26,12 +29,19 @@
 		<div class = "left-sidebar">
 			<h1>Filter Posters</h1>
 			 <input type="text" id="search" placeholder="Type to search">
-            
-            
-			<a id="navsidebar" href = 'techno.html' style="flex-grow: 1">Techno</a>
-			<a id="navsidebar" href = 'pauli.html' style="flex-grow: 1">Pauli</a>
-			<a id="navsidebar" href= "https://www.github.com/pakaplace" style="flex-grow: 3">Github</a>
-			<a id="navsidebar" href= "https://twitter.com/i/notifications?lang=en" style="flex-grow: 1">Twitter</a>
+				
+				
+				<select id = 'select'>
+				<option value ="All" selected> All</option>
+				<option value ="Business" > Business</option>
+				<option value ="ComputerScience" > Computer Science</option>
+				<option value ="Movies" > Movies</option>
+				<option value ="Educational" > Educational</option>
+				<option value = "StudyAbroad"> Study Abroad</option>
+				</select>
+				
+				
+			
 		</div>
 		
         

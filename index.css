@@ -29,6 +29,11 @@ div {
 img{
 	margin: 15px;
 }
+#logo{
+	top: 100px;
+    position: relative;
+    z-index: 100;
+}
 
 div.textbox{
 	margin: 15px;
@@ -129,12 +134,22 @@ header .article-header{
  	}
 }
 #search{
-    width:185px
+    width: 170px;
+    padding: 8px 1px;
+    margin: 12px;
+	background-color: powderblue ;
+	
 }
 td {
     padding: 4px; 
     border: 1px #CCC solid; 
     width: 100px;
+}
+#select {
+	width: 175px;
+    padding: 8px 0px;
+    margin: 11px;
+	background-color: powderblue;
 }
 
 /*Masonry CSS*/
