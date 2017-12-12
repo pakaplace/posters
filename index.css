@@ -175,3 +175,9 @@ td {
 .container:hover .picture:not(:hover) { 
     opacity: .8;   
 }
+
+.focus{
+	width: 25%;
+}
+
+/* End Masonry */

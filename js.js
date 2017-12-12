@@ -8,7 +8,15 @@ $(window).on('load' , function(){
 });
 });
 
-
+$(document).ready(function() {
+    $(".picture").click(function() {
+        const $img = $(this);
+		$img.addClass('focus');
+	
+		$('div.container').masonry();
+		
+		})
+               })
 
 
 $('div.container').imagesLoaded( { background: true }, function() {
