@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 
-<form action="http://localhost:8000" method="post" enctype="multipart/form-data">
-<input type="file" name="file" />
-<br/> <input type="submit" value="Upload"/>
-</form>
+<nav class="navbar">
+		<div class = "navlist">	
+            <a class = "navitem" href= "index.html" style="flex-grow: 1">HomePage</a>
+			<a class = "navitem" href= "home.html" style="flex-grow: 1">Upload Poster</a>
+			
+			<img id = 'logo' src="logo.png" alt="poster" style="width:200px;height:200px;">
+			
+			<a class = "navitem" href= "createAccount.html" style="flex-grow: 1">Create Account</a>
+			<a class = "navitem" href= "viewAccount.html" style="flex-grow: 1">View Account</a>
+		</div>
+	</nav>
+
+<div class = 'upload'>
+	<form action="http://localhost:8000" method="post" enctype="multipart/form-data">
+	<input type="file" name="file" />
+	<br/> <input type="submit" value="Upload"/>
+	</form>
+	</div>
 
 </body>
 </html>
