@@ -12,7 +12,7 @@ var MONGO_PASSWORD = process.env.MONGO_PASSWORD
 
 // Schema is a structure of a particular document
 var PosterSchema = new Schema({
-    img: { data: Buffer, contentType: String },
+    img: { data: String, contentType: String },
     title: String,
     expirationDate: Date,
     uploadDate: Date
@@ -54,6 +54,11 @@ app.get('/savePoster',(req,res)=>{
 	console.log('getbody1: ' + base64Img);
 	res.send("GET request to save poster")
 })
+app.get('/getPoster',(req,res)=>{
+	Poster.find({},function (error,data) {
+		res.send(data);
+})
+})
 
 app.post('/savePoster', function(req, res){
 	var base64Img = JSON.stringify(req.body.data);
@@ -78,7 +83,8 @@ app.post('/savePoster', function(req, res){
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 // Connection URL
-var url = 'mongodb://pakaplace:'+MONGO_PASSWORD+'@ds013414.mlab.com:13414/pakaplace'
+
+var url = 'mongodb://pakaplace:Malay11!@ds013414.mlab.com:13414/pakaplace';
 // Use connect method to connect to the Server
 mongoose.connect(url);
 

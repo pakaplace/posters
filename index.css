@@ -5,12 +5,14 @@ body {
 	margin: 0px;
 	word-wrap: break-word;
 	font-family: 'Playfair Display', serif;
-    background-color: #D1F4FF
+    background-color: wheat;
+    
 }
 h1, h2, h3 {
 	font-size: 25px;
 	overflow: auto;
 	font-family: "Josefin Sans", sans-serif;
+	color:wheat;
 }
 a{
 	text-decoration : none; 
@@ -29,6 +31,12 @@ div {
 img{
 	margin: 15px;
 }
+#logo{
+	top: 110px;
+    position: relative;
+    z-index: 100;
+	margin-top: -120px;
+}
 
 div.textbox{
 	margin: 15px;
@@ -43,13 +51,13 @@ input{
 }
 .navbar{
 	font-family: "Josefin Sans", sans-serif;
-	display: flex;
+	display: block;
 	text-transform: uppercase;
 	flex-flow: row wrap; 
 	padding: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-	margin-bottom: 10px;
-    background-color: powderblue
+	margin-bottom: -30px;
+    background-color: #444;
 	/*@media (min-width: 768px) { width: 750px; }
   	@media (min-width: 992px) { width: 970px; }
   	@media (min-width: 1200px) { width: 1140px; }*/
@@ -59,24 +67,35 @@ input{
 	margin: 5px 100px 10px 20px;
     font-size: 40px;
 }
-/*.navitem{ 
-	display: flex;
-	justify-content: center;
-}*/
+
 
 .nav-list{
 	justify-content: space-around;
+	width: 100%;
+  height: 50px;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 5px;
+
 }
+
+@media screen and (max-width:580px){
+	.nav-list {
+		display:none;
+	}
+}
+
 a.navitem{
-	margin: 30px;
-	padding: 5px;
+	 vertical-align: middle;
+    padding: 2%;
+	color:wheat;
 }
 a:hover{
 	/*do something*/
 	color: grey;
 }
 
-.main-page{
+.main-page{    
 	display: flex;
   	min-height: 100vh;
   	flex-direction: row;
@@ -91,7 +110,7 @@ a:hover{
 	flex-grow: 1;
 	order:-1;
 	max-width: 10em;
-	background-color: #f1f1f1;
+	background-color: #444;
 	border-right: 1px solid #e2e2e2
 
 }
@@ -132,10 +151,132 @@ header .article-header{
  	}
 }
 #search{
-    width:185px
+    width: 170px;
+    padding: 0px 1px;
+    margin: 12px;
+	background-color: white ;
+	border-radius: 10px;
+	
+	
 }
 td {
     padding: 4px; 
     border: 1px #CCC solid; 
     width: 100px;
 }
+#select {
+	width: 175px;
+    padding: 8px 0px;
+    margin: 11px;
+	background-color: white;
+}
+
+/*Masonry CSS*/
+.picture {
+  border-radius: 20px;
+  width: 17%;
+  
+  display: inline-block;
+
+    
+}
+
+.picture:hover {
+  box-shadow: 0 5px 5px rgba(0,0,0,.3), 0 5px 5px rgba(0,0,0, .3);
+}
+
+.container{
+    padding: .5%;
+}
+
+/*
+.container:hover .picture:not(:hover) { 
+    opacity: .8;   
+}
+*/
+
+.focus{
+	width: 30%;
+}
+
+.notFocus{
+	opacity: .5;
+}
+
+/* End Masonry */
+
+
+/*view account*/
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+div.container{
+    width: 960px;
+    height: 610px;
+    margin: 50px auto;
+    font-family: 'Droid Serif', serif;
+    position:relative;
+    
+}
+
+div.main{
+    width: 50%;
+    float:left;
+    padding: 10px 55px 40px;
+    background-color: #709DC4;
+    border: 10px solid lightblue;
+    box-shadow: 0 0 10px;
+    font-size: 12px;
+	margin-left: 140px;
+	margin-top: 20px;
+}
+
+input[type=text],[type=password] {
+    width: 97.7%;
+    height: 34px;   
+    padding-left: 5px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    color: black;
+    font-size: 16px;
+}
+
+label{
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#register {
+    font-size: 20px;
+    margin-top: 15px;
+    background: blue;
+    border: 1px solid #0F799E;
+    padding: 10px 35px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+#register:hover{
+    background: #232367;
+}
+
+/****CreateAccount*/
+
+.acc{
+	margin-top: 100px;
+}
+.upload{
+	margin-top: 100px;
+}
+
+

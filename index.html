@@ -7,62 +7,117 @@
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Playfair+Display" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js.js"></script>
+     <script src="masonry.pkgd.min.js"></script>
+    <script src="imagesloaded.pkgd.min.js"></script>
 
 </head>
 
 <body>
 	<nav class="navbar">
-		<a class = "logo" href = "index.html">Poster</a>
 		<div class = "navlist">	
             <a class = "navitem" href= "index.html" style="flex-grow: 1">HomePage</a>
-			<a class = "navitem" href= "index.html" style="flex-grow: 1">Upload Poster</a>
-			<a class = "navitem" href= "accountcreate/createAccount.html" style="flex-grow: 1">Create Account</a>
-			<a class = "navitem" href= "index.html" style="flex-grow: 1">View Account</a>
+			<a class = "navitem" href= "home.html" style="flex-grow: 1">Upload Poster</a>
+			
+			<img id = 'logo' src="logo.png" alt="poster" style="width:200px;height:200px;">
+			
+			<a class = "navitem" href= "createAccount.html" style="flex-grow: 1">Create Account</a>
+			<a class = "navitem" href= "viewAccount.html" style="flex-grow: 1">View Account</a>
 		</div>
 	</nav>
 	<main class = "main-page">
 		<div class = "left-sidebar">
 			<h1>Filter Posters</h1>
 			 <input type="text" id="search" placeholder="Type to search">
-            
-            
-			<a id="navsidebar" href = 'techno.html' style="flex-grow: 1">Techno</a>
-			<a id="navsidebar" href = 'pauli.html' style="flex-grow: 1">Pauli</a>
-			<a id="navsidebar" href= "https://www.github.com/pakaplace" style="flex-grow: 3">Github</a>
-			<a id="navsidebar" href= "https://twitter.com/i/notifications?lang=en" style="flex-grow: 1">Twitter</a>
+				
+				
+				<select id = 'select'>
+				<option value ="All" selected> All</option>
+				<option value ="Business" > Business</option>
+				<option value ="ComputerScience" > Computer Science</option>
+				<option value ="Movies" > Movies</option>
+				<option value ="Educational" > Educational</option>
+				<option value = "StudyAbroad"> Study Abroad</option>
+				</select>
+				
+				
+			
 		</div>
-		<div class = "main-body">
 
-            
-            
-            
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    type: 'GET',
+                    crossDomain: true,
+                    url: "http://localhost:3000/getPoster",
+                    success: function(result){
+                        $("#container").html("");
+                        for(var i = 0; i < result.length;i++){
+                            var obj = result[i].img.data;
+                            var img = "data:image/jpeg;base64,"+obj.substr(1).slice(0, -1);
+                            $("#container").append("<img class='picture'src='"+img+"'/>");
+                            console.log(obj);
+                        }
+                    }});
+            });
+        </script>
 
-            masonry goes here
-           
-            
-            <table id="table">
-   <tr>
-      <td>Apple</td>
-      <td>Green</td>
-   </tr>
-   <tr>
-      <td>Grapes</td>
-      <td>Green</td>
-   </tr>
-   <tr>
-      <td>Orange</td>
-      <td>Orange</td>
-   </tr>
-</table>
-            
-            
-            
-            
-            
-            
-		</div>
-        
+        <div id="container" class= "container main-body">
+               <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/450x100">
+                 <img class = "picture" src="http://via.placeholder.com/150x300">
+                 <img class = "picture" src="http://via.placeholder.com/450x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/350x600">
+                 <img class = "picture" src="http://via.placeholder.com/110x50">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/450x100">
+                 <img class = "picture" src="http://via.placeholder.com/50x50">
+                 <img class = "picture" src="http://via.placeholder.com/1000x250">
+                 <img class = "picture" src="http://via.placeholder.com/200x850">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/50x100">
+                 <img class = "picture" src="http://via.placeholder.com/200x50">
+                 <img class = "picture" src="http://via.placeholder.com/20x10">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/450x100">
+                 <img class = "picture" src="http://via.placeholder.com/150x200">
+                 <img class = "picture" src="http://via.placeholder.com/450x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/450x100">
+                 <img class = "picture" src="http://via.placeholder.com/150x300">
+                 <img class = "picture" src="http://via.placeholder.com/450x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/350x600">
+                 <img class = "picture" src="http://via.placeholder.com/110x50">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+               <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/450x100">
+                 <img class = "picture" src="http://via.placeholder.com/150x300">
+                 <img class = "picture" src="http://via.placeholder.com/450x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/350x600">
+                 <img class = "picture" src="http://via.placeholder.com/110x50">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x350">
+                 <img class = "picture" src="http://via.placeholder.com/350x150">
+                 <img class = "picture" src="http://via.placeholder.com/450x100">
+                 <img class = "picture" src="http://via.placeholder.com/50x50">
+                 <img class = "picture" src="http://via.placeholder.com/1000x250">
+              
+        </div>
 
+                        
 	</main>
 	
 </body>
