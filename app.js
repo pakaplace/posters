@@ -84,7 +84,7 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 // Connection URL
 
-var url = 'mongodb://pakaplace:Malay11!@ds013414.mlab.com:13414/pakaplace';
+var url = 'mongodb://pakaplace:'+MONGO_PASSWORD+'@ds013414.mlab.com:13414/pakaplace';
 // Use connect method to connect to the Server
 mongoose.connect(url);
 
