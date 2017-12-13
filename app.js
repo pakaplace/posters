@@ -8,7 +8,7 @@ var fs = require('fs');
 var bodyParser = require('body-parser')
 
 var imgPath = "./terry.jpg"
-
+var MONGO_PASSWORD = process.env.MONGO_PASSWORD
 
 // Schema is a structure of a particular document
 var PosterSchema = new Schema({
@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({limit: '5mb'}));
 //var buffer = new Buffer(data, 'base64');
 
 app.get('/', function(req, res){
-	res.send("hello world")
+	res.render('testUpload')
 })
 app.get('/savePoster',(req,res)=>{
 	console.log("11111111111111111111111111111111111")
@@ -74,14 +74,17 @@ app.post('/savePoster', function(req, res){
 	})
 	res.send("Success message!!!");
 })
-
+//
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 // Connection URL
-var url = 'mongodb://426team:posterboy$426@clusterfuck-shard-00-00-otcse.mongodb.net:27017,clusterfuck-shard-00-01-otcse.mongodb.net:27017,clusterfuck-shard-00-02-otcse.mongodb.net:27017/test?ssl=true&replicaSet=Clusterfuck-shard-0&authSource=admin';
+var url = 'mongodb://pakaplace:'+MONGO_PASSWORD+'@ds013414.mlab.com:13414/pakaplace'
 // Use connect method to connect to the Server
 mongoose.connect(url);
 
+Poster.find(function(err, data){
+	console.log(data);	
+})
 // var poster = new Poster;
 // poster.img.data = fs.readFileSync(imgPath);
 // poster.img.contentType = 'image/jpg';

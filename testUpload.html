@@ -1,19 +1,30 @@
 <html>
 <body>
 <p>Click the button to create a File Upload Button.</p>
+<input id="title" placeholder="Event title"></input>
+<input id="expirationDate" placeholder="Event date"></input>
 
+<input type="radio"  placeholder="Event title"></input>
 <button onclick="myFunction()">Try it</button>
 <div id="output"></div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+<input type="radio" id="contactChoice1"
+     name="contact" value="email">
+    <label for="contactChoice1">Email</label>
+
+    <input type="radio" id="contactChoice2"
+     name="contact" value="phone">
+    <label for="contactChoice2">Phone</label>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 //image.data, img.contenttype title, expiration date, upload date
-function savePoster(imgBase64){
+function savePoster(dataObject){
 	$.ajax({
       method: 'POST',
       url: "http://localhost:3000/savePoster",
       contentType: 'application/json',
-      data: JSON.stringify({data: imgBase64}),
+      data: JSON.stringify({data: dataObject.imgBase64}),
       crossDomain: true,
       dataType: 'json',
       success: function(data) {
@@ -22,7 +33,7 @@ function savePoster(imgBase64){
 	})
 };
 function myFunction() {
-    var x = document.createElement("INPUT");
+    var x = document.createElement("Input");
     x.setAttribute("type", "file");
     x.setAttribute("id", "upload");
     x.setAttribute("accept", "image/jpeg");
@@ -30,8 +41,16 @@ function myFunction() {
     document.body.appendChild(x);
 }
 //files has name, size, and type
+// var PosterSchema = new Schema({
+//     img: { data: Buffer, contentType: String },
+//     title: String,
+//     expirationDate: Date,
+//     uploadDate: Date
+//     Category
+// });
+
 function getJpg(){
-	var div = document.getElementById("output")
+	var div = document.getElementById("output");
 	var x = document.getElementById("upload");
     var txt = "";
     if ('files' in x) { //has name, type, and size
