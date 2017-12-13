@@ -5,13 +5,14 @@ body {
 	margin: 0px;
 	word-wrap: break-word;
 	font-family: 'Playfair Display', serif;
-    background-color: #e8fafc;
+    background-color: wheat;
     
 }
 h1, h2, h3 {
 	font-size: 25px;
 	overflow: auto;
 	font-family: "Josefin Sans", sans-serif;
+	color:wheat;
 }
 a{
 	text-decoration : none; 
@@ -31,7 +32,7 @@ img{
 	margin: 15px;
 }
 #logo{
-	top: 100px;
+	top: 110px;
     position: relative;
     z-index: 100;
 	margin-top: -120px;
@@ -55,8 +56,8 @@ input{
 	flex-flow: row wrap; 
 	padding: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-	margin-bottom: 10px;
-    background-color: #4b9cb3;
+	margin-bottom: -30px;
+    background-color: #444;
 	/*@media (min-width: 768px) { width: 750px; }
   	@media (min-width: 992px) { width: 970px; }
   	@media (min-width: 1200px) { width: 1140px; }*/
@@ -87,6 +88,7 @@ input{
 a.navitem{
 	 vertical-align: middle;
     padding: 2%;
+	color:wheat;
 }
 a:hover{
 	/*do something*/
@@ -108,7 +110,7 @@ a:hover{
 	flex-grow: 1;
 	order:-1;
 	max-width: 10em;
-	background-color: #f1f1f1;
+	background-color: #444;
 	border-right: 1px solid #e2e2e2
 
 }
@@ -150,9 +152,11 @@ header .article-header{
 }
 #search{
     width: 170px;
-    padding: 8px 1px;
+    padding: 0px 1px;
     margin: 12px;
-	background-color: powderblue ;
+	background-color: white ;
+	border-radius: 10px;
+	
 	
 }
 td {
@@ -164,7 +168,7 @@ td {
 	width: 175px;
     padding: 8px 0px;
     margin: 11px;
-	background-color: powderblue;
+	background-color: white;
 }
 
 /*Masonry CSS*/
@@ -204,9 +208,6 @@ td {
 
 /*view account*/
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-body{
-    background-color: #D1F4FF;
-}
 
 h2 {
     text-align: center;
