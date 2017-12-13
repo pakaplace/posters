@@ -50,14 +50,19 @@ app.use(bodyParser.urlencoded({limit: '5mb'}));
 app.get('/', function(req, res){
 	res.render('testUpload')
 })
-app.get('/savePoster',(req,res)=>{
-	var base64Img = JSON.stringify(req.body.data);
-	res.send("GET request to save poster")
-})
+
 app.get('/getPoster',(req,res)=>{
-	Poster.find({},function (error,data) {
-		res.send(data);
-})
+	var selCategory = req.query.category
+	if(selCategory){
+		Poster.find({category: selCategory}, function(error, data){
+			res.send(data);
+		})
+	}
+	else{
+		Poster.find({},function (error,data) {
+			res.send(data);
+		})
+	}
 })
 
 app.post('/savePoster', function(req, res){

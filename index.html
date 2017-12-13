@@ -11,7 +11,39 @@
     <script src="js.js"></script>
 
 </head>
-
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: "http://localhost:3000/getPoster",
+            success: function(result){
+                $("#container").html("");
+                for(var i = 0; i < result.length;i++){
+                    var obj = result[i].img.data;
+                    var img = "data:image/jpeg;base64,"+obj.slice(0, -1);
+                    $("#container").append("<img class='picture'src='"+img+"'/>");
+                }
+            }});
+    });
+    function getPoster(cat){
+        console.log("CATEGORY="+ cat)
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: "http://localhost:3000/getPoster?category="+cat,
+            success: function(result){
+                $("#container").empty();
+                $("#container").html("");
+                for(var i = 0; i < result.length;i++){
+                    var obj = result[i].img.data;
+                    var img = "data:image/jpeg;base64,"+obj.slice(0, -1);
+                    $("#container").append("<img class='picture'src='"+img+"'/>");
+                }
+            }
+        });
+    }
+</script>
 <body>
 	<nav class="navbar">
 		<div class = "navlist">	
@@ -24,39 +56,19 @@
 	</nav>
 	<main class = "main-page">
 		<div class = "left-sidebar">
-			<h1>Filter Posters</h1>
-			 <input type="text" id="search" placeholder="Type to search">
-				
-				
-				<select id = 'select'>
-				<option value ="All" selected> All</option>
-				<option value ="Business" > Business</option>
-				<option value ="ComputerScience" > Computer Science</option>
-				<option value ="Movies" > Movies</option>
-				<option value ="Educational" > Educational</option>
-				<option value = "StudyAbroad"> Study Abroad</option>
+			<h1>Filter by category</h1>					
+				<select id = 'select' onchange="getPoster(this.options[this.selectedIndex].value)">
+    				<option value="music">Music</option>
+                    <option value="performingarts">Performing Arts</option>
+                    <option value="speaker">Speaker</option>
+                    <option value="charity">Charity</option>
+                    <option value="work">Work opportunities</option>
 				</select>
 				
 				
 			
 		</div>
 
-        <script>
-            $(document).ready(function(){
-                $.ajax({
-                    type: 'GET',
-                    crossDomain: true,
-                    url: "http://localhost:3000/getPoster",
-                    success: function(result){
-                        $("#container").html("");
-                        for(var i = 0; i < result.length;i++){
-                            var obj = result[i].img.data;
-                            var img = "data:image/jpeg;base64,"+obj.slice(0, -1);
-                            $("#container").append("<img class='picture'src='"+img+"'/>");
-                        }
-                    }});
-            });
-        </script>
 
         <div id="container" class= "container main-body">
                <img class = "picture" src="http://via.placeholder.com/350x150">
