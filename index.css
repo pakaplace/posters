@@ -239,7 +239,7 @@ div.main{
 	margin-top: 20px;
 }
 
-input[type=text],[type=password] {
+input[type=text],[type=date],[type=password] {
     width: 97.7%;
     height: 34px;   
     padding-left: 5px;

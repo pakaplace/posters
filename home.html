@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="./index.css">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./uploadPicture.js"></script>
 <body>
 
 <nav class="navbar">
@@ -17,14 +19,33 @@
 			<a class = "navitem" href= "createAccount.html" style="flex-grow: 1">Create Account</a>
 			<a class = "navitem" href= "viewAccount.html" style="flex-grow: 1">View Account</a>
 		</div>
-	</nav>
+</nav>
 
-<div class = 'upload'>
-	<form action="http://localhost:8000" method="post" enctype="multipart/form-data">
-	<input type="file" name="file" />
-	<br/> <input type="submit" value="Upload"/>
+<div class = "container">
+	<div class = "main">
+	<form class="form">
+		<h2>Upload Event</h2>
+		<label>Event title: </label>
+		<input type="text" id="title" placeholder="Event title"></input>
+		<label>Event date: </label>
+		<input type="date" id="eventdate" placeholder="Event date"></input>
+		<label>Hosting Organization</label>
+		<input type="text" id="organization" placeholder="Event title"></input>
+		<label>Category</label>
+		<select id ="categories">
+		  <option value="music">Music</option>
+		  <option value="performingarts">Performing Arts</option>
+		  <option value="speaker">Speaker</option>
+		  <option value="charity">Charity</option>
+		  <option value="work">Work</option>
+		</select><br>
+     	<label>Upload Event Poster</label>
+		<input id="upload" type="file" accept="image/jpg" onchange="getJpg()" value="Upload"/>
+		<div id="output"></div>
 	</form>
 	</div>
+</div>
+
 
 </body>
 </html>

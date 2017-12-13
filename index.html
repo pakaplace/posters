@@ -6,9 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Playfair+Display" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js.js"></script>
-     <script src="masonry.pkgd.min.js"></script>
-    <script src="imagesloaded.pkgd.min.js"></script>
+	<script src="imagesloaded.pkgd.min.js"></script>
+    <script src="masonry.pkgd.min.js"></script>
+    <script src="js.js"></script>
 
 </head>
 
@@ -17,9 +17,7 @@
 		<div class = "navlist">	
             <a class = "navitem" href= "index.html" style="flex-grow: 1">HomePage</a>
 			<a class = "navitem" href= "home.html" style="flex-grow: 1">Upload Poster</a>
-			
 			<img id = 'logo' src="logo.png" alt="poster" style="width:200px;height:200px;">
-			
 			<a class = "navitem" href= "createAccount.html" style="flex-grow: 1">Create Account</a>
 			<a class = "navitem" href= "viewAccount.html" style="flex-grow: 1">View Account</a>
 		</div>
@@ -53,9 +51,8 @@
                         $("#container").html("");
                         for(var i = 0; i < result.length;i++){
                             var obj = result[i].img.data;
-                            var img = "data:image/jpeg;base64,"+obj.substr(1).slice(0, -1);
+                            var img = "data:image/jpeg;base64,"+obj.slice(0, -1);
                             $("#container").append("<img class='picture'src='"+img+"'/>");
-                            console.log(obj);
                         }
                     }});
             });

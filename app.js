@@ -14,7 +14,9 @@ var MONGO_PASSWORD = process.env.MONGO_PASSWORD
 var PosterSchema = new Schema({
     img: { data: String, contentType: String },
     title: String,
-    expirationDate: Date,
+    category: String,
+    eventDate: Date,
+    organization: String,
     uploadDate: Date
 // Category
 });
@@ -49,9 +51,7 @@ app.get('/', function(req, res){
 	res.render('testUpload')
 })
 app.get('/savePoster',(req,res)=>{
-	console.log("11111111111111111111111111111111111")
 	var base64Img = JSON.stringify(req.body.data);
-	console.log('getbody1: ' + base64Img);
 	res.send("GET request to save poster")
 })
 app.get('/getPoster',(req,res)=>{
@@ -61,24 +61,28 @@ app.get('/getPoster',(req,res)=>{
 })
 
 app.post('/savePoster', function(req, res){
-	var base64Img = JSON.stringify(req.body.data);
-	console.log('getbody1: ' + base64Img);
+	console.log('imgTitle! ' + req.body.data);
+	console.log('imgTitle! ' + req.body.data.title);
 	//base64Img is stripped of data:image/jpeg;base64,+<base64code>
 	//var imgBuffer = new Buffer(base64Img, 'base64')
 	var poster = new Poster;
-	poster.img.data = base64Img;
+	poster.title = req.body.data.title;
+	poster.eventDate = req.body.data.eventDate;
+	poster.organization = req.body.data.organization;
+	poster.category = req.body.data.category;
+	poster.img.data = req.body.data.imgData;
+	poster.uploadDate = new Date();
 	poster.img.contentType = 'image/jpg';
 	poster.save(function (err, poster) {
 	  if (err) throw err;
 	  Poster.find(poster, function (err, doc) {
 	          if (err) return next(err);
-	          console.log("DOC SAVED YO", doc)
-	          // res.contentType(doc.img.contentType);
-	          // res.send(doc.img.data);
+	          console.log("Poster saved", doc)
 	  });
 	})
 	res.send("Success message!!!");
 })
+//imgData, title, eventDate, organization, category}
 //
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
@@ -88,9 +92,7 @@ var url = 'mongodb://pakaplace:'+MONGO_PASSWORD+'@ds013414.mlab.com:13414/pakapl
 // Use connect method to connect to the Server
 mongoose.connect(url);
 
-Poster.find(function(err, data){
-	console.log(data);	
-})
+
 // var poster = new Poster;
 // poster.img.data = fs.readFileSync(imgPath);
 // poster.img.contentType = 'image/jpg';
